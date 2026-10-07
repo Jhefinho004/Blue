@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>B.L.U.E.</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #05070d;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    header {
+      padding: 22px;
+      text-align: center;
+      border-bottom: 1px solid #182238;
+    }
+
+    header h1 {
+      font-size: 28px;
+      letter-spacing: 6px;
+    }
+
+    header p {
+      margin-top: 5px;
+      color: #6d8cff;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .core {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 2px solid #4169ff;
+      box-shadow:
+        0 0 20px #4169ff,
+        0 0 60px rgba(65, 105, 255, 0.5),
+        inset 0 0 30px rgba(65, 105, 255, 0.3);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-bottom: 35px;
+
+      animation: pulse 2s infinite;
+    }
+
+    .core::before {
+      content: "";
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #4169ff;
+      box-shadow: 0 0 35px #4169ff;
+    }
+
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.06);
+      }
+    }
+
+    .status {
+      color: #7f91b8;
+      font-size: 13px;
+      margin-bottom: 25px;
+    }
+
+    .chat {
+      width: 100%;
+      max-width: 500px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .chat input {
+      flex: 1;
+      background: #0c111d;
+      border: 1px solid #263557;
+      border-radius: 14px;
+      padding: 15px;
+      color: white;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .chat button {
+      width: 55px;
+      border: none;
+      border-radius: 14px;
+      background: #4169ff;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    footer {
+      padding: 15px;
+      text-align: center;
+      color: #4e5d7d;
+      font-size: 11px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>B.L.U.E.</h1>
+    <p>PERSONAL AI ASSISTANT</p>
+  </header>
+
+  <main>
+
+    <div class="core"></div>
+
+    <div class="status">
+      Sistema online • Aguardando comando
+    </div>
+
+    <div class="chat">
+      <input
+        type="text"
+        id="message"
+        placeholder="Fale com a B.L.U.E..."
+      >
+
+      <button onclick="sendMessage()">➤</button>
+    </div>
+
+  </main>
+
+  <footer>
+    B.L.U.E. • Sistema experimental
+  </footer>
+
+  <script>
+    function sendMessage() {
+      const input = document.getElementById("message");
+
+      if (input.value.trim() === "") {
+        return;
+      }
+
+      alert("B.L.U.E. recebeu: " + input.value);
+
+      input.value = "";
+    }
+  </script>
+
+</body>
+</html>
